@@ -1,5 +1,8 @@
-<h1>Post show</h1>
+@extends('layouts.app')
+@section('judul', 'Postingan')
 
-{{ $posts['title'] }}
-<br>
-{{ $posts['content'] }}
+@section('isi')
+    {{ $posts['title'] }}
+    <br>
+    {{ $posts['content'] }}
+@endsection
