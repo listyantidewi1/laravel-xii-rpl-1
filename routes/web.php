@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,16 +39,18 @@ $posts = [
     ]
 ];
 
-//menampilkan semua posts
-Route::get('/posts', function() use ($posts)
-    {
-        return view('posts.index', ['posts' => $posts]);
-    }
-);
+// //menampilkan semua posts
+// Route::get('/posts', function() use ($posts)
+//     {
+//         return view('posts.index', ['posts' => $posts]);
+//     }
+// );
 
-//menampilkan posts berdasarkan id
-Route::get('/posts/{id}', function($id) use ($posts){
-        abort_if(!isset($posts[$id]), 404);
-        return view('posts.show', ['posts' => $posts[$id]]);
-    }
-);
+// //menampilkan posts berdasarkan id
+// Route::get('/posts/{id}', function($id) use ($posts){
+//         abort_if(!isset($posts[$id]), 404);
+//         return view('posts.show', ['posts' => $posts[$id]]);
+//     }
+// );
+
+Route::resource('posts', PostsController::class)->only('index', 'show', 'create', 'store');
