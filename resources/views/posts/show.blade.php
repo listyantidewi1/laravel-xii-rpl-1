@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('judul', 'Postingan')
+@section('title', 'Postingan')
 
-@section('isi')
-    {{ $posts['title'] }}
+@section('content')
+    {{ $post['title'] }}
     <br>
-    {{ $posts['content'] }}
+    {{ $post['content'] }}
 @endsection

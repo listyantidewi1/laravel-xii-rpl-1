@@ -4,7 +4,7 @@
 @section('judul', 'All blog posts')
 {{-- menampilkan semua posts pada posisi isi --}}
 @section('isi')
-    @forelse ($posts as $key => $post)
+    @forelse ($post as $key => $post)
         {{ $key }} . {{ $post['title'] }} <br > {{ $post['content'] }}
         <br/>
     @empty

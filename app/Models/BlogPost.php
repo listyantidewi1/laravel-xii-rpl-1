@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogPost extends Model
 {
+    //mengatur supaya kolom title dan content bisa diisi (fill)
+    protected $fillable = ['title', 'content'];
     use HasFactory;
 }

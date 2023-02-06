@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePost;
 
 class PostsController extends Controller
 {
@@ -14,7 +16,8 @@ class PostsController extends Controller
     //dipakai utk menampilkan seluruh data
     public function index()
     {
-        //
+        //menampilkan seluruh data dari BlogPost
+        return view('posts.index', ['posts' => BlogPost::all()]);
     }
 
     /**
@@ -36,10 +39,21 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     //eksekusi tambah data
-    public function store(Request $request)
+    public function store(StorePost $request)
     {
-        //
+        //validasi data
+        $validated = $request->validated();
+
+        //simpan data ke database
+        $post = BlogPost::create($validated);
+        
+        //flash message
+        session()->flash('status', 'Sukses menambah postingan baru');
+
+        //redirect ke halaman show
+        return redirect()->route('posts.show', ['post' => $post->id]);
     }
+
 
     /**
      * Display the specified resource.
@@ -50,7 +64,9 @@ class PostsController extends Controller
     //dipakai utk menampilkan satu data
     public function show($id)
     {
-        //
+        //menampilkan satu data berdasarkan id
+        return view('posts.show', ['post' => BlogPost::findOrFail($id)]);
+
     }
 
     /**
