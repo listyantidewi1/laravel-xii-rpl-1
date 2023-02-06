@@ -78,7 +78,8 @@ class PostsController extends Controller
     //dipakai utk edit data (bagian menampilkan form edit)
     public function edit($id)
     {
-        //
+        //implementasi fungsi edit data, digunakan utk seleksi 1 data yg akan diedit berdasarkan id-nya
+        return view('posts.edit', ['post' => BlogPost::findOrFail($id)]);
     }
 
     /**
@@ -89,9 +90,25 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     //mengeksekusi update data
-    public function update(Request $request, $id)
+    public function update(StorePost $request, $id)
     {
-        //
+        //eksekusi update data
+        //pastikan data yg akan di-update ada
+        $post = BlogPost::findOrFail($id);
+
+        //tampilkan sebuah array/himpunan data yg telah tervalidasi
+        $validated = $request->validated();
+        
+        //isi object $post dengan data yg telah tervalidasi, dan simpan ke database
+        $post->fill($validated);
+        $post->save();
+
+        //flash message
+        session()->flash('status', 'Sukses update data');
+
+        //pindah ke halaman posts/show/{id}
+        return redirect()->route('posts.show', ['post' =>$post->id]);
+
     }
 
     /**
@@ -103,6 +120,17 @@ class PostsController extends Controller
     //eksekusi delete data
     public function destroy($id)
     {
-        //
+        //fungsi utk hapus data
+        //temukan data yg akan dihapus
+        $post = BlogPost::findOrFail($id);
+
+        //hapus data    
+        $post->delete();
+
+        //flash message
+        session()->flash('status', 'Sukses hapus data');
+
+        //pindah ke halaman index
+        return redirect()->route('posts.index');
     }
 }

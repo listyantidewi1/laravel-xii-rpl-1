@@ -16,7 +16,12 @@
             <textarea name="content" placeholder="Masukkan konten">
                 {{ old('content') }}
             </textarea>
-        </div>
+
+        @error('content')
+            <div>{{ $message }}</div>
+        @enderror
+        
+    </div>
         <div>
             <input type="submit" value="Create" name="submit">
         </div>
