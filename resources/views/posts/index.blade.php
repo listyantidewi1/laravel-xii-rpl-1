@@ -5,8 +5,7 @@
 {{-- menampilkan semua posts pada posisi isi --}}
 @section('content')
     @forelse ($posts as $key => $post)
-        {{ $key }} . {{ $post['title'] }} <br > {{ $post['content'] }}
-        <br/>
+        @include('posts.partials.post')
     @empty
         <p>Nothing to display</p>
     @endforelse
