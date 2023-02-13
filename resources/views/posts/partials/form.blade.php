@@ -7,9 +7,7 @@
 @enderror
 
 <div>
-    <textarea name="content" placeholder="Masukkan konten">
-        {{ old('content', optional($post ?? null)->content) }}
-    </textarea>
+    <textarea name="content" placeholder="Masukkan konten">{{ old('content', optional($post ?? null)->content) }}</textarea>
     @error('content')
         <div>{{ $message }}</div>
     @enderror

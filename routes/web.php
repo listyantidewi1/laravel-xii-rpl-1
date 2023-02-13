@@ -16,3 +16,11 @@ use App\Http\Controllers\PostsController;
 Route::view('/home', 'home.index')->name('home.index');
 Route::view('/kontak', 'home.contact');
 Route::resource('posts', PostsController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
