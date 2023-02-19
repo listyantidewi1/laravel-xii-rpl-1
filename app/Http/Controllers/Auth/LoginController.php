@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
   
 namespace App\Http\Controllers\Auth;
   
@@ -8,15 +7,6 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
   
-=======
-
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
 class LoginController extends Controller
 {
     /*
@@ -29,26 +19,16 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-<<<<<<< HEAD
   
     use AuthenticatesUsers;
   
-=======
-
-    use AuthenticatesUsers;
-
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-<<<<<<< HEAD
   
-=======
-
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
     /**
      * Create a new controller instance.
      *
@@ -58,7 +38,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
  
     public function login(Request $request)
     {   
@@ -85,6 +64,3 @@ class LoginController extends Controller
           
     }
 }
-=======
-}
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9

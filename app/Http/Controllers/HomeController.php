@@ -1,17 +1,9 @@
 <?php
-<<<<<<< HEAD
   
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
   
-=======
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
 class HomeController extends Controller
 {
     /**
@@ -23,11 +15,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-<<<<<<< HEAD
   
-=======
-
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
     /**
      * Show the application dashboard.
      *
@@ -36,7 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-<<<<<<< HEAD
     } 
   
     /**
@@ -59,7 +46,3 @@ class HomeController extends Controller
         return view('managerHome');
     }
 }
-=======
-    }
-}
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9

@@ -20,15 +20,12 @@ Route::view('/home', 'home.index')->name('home.index');
 Route::view('/kontak', 'home.contact');
 Route::resource('posts', PostsController::class);
 
-<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
-
+  
 Auth::routes();
-
-
-
+  
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
@@ -58,12 +55,3 @@ Route::middleware(['auth', 'user-access:manager'])->group(function () {
   
     Route::get('/manager/home', [HomeController::class, 'managerHome'])->name('manager.home');
 });
-=======
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 9425c259395d1d59d569f4c91b8e132b7259cbe9
