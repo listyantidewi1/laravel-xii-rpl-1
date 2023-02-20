@@ -7,7 +7,8 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
   
                 <div class="card-body">
-                    You are a Manager User.
+                    Hello,
+                    {{ Auth::user()->name }}
                 </div>
             </div>
         </div>
