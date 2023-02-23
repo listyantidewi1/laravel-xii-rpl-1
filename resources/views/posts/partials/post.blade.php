@@ -3,7 +3,7 @@
 @if($loop->even)
     <div>{{ $key }} . {{ $post->title }}</div>
 @else
-    <div style="background-color: grey;">{{ $key }} . {{ $post->title }}</div>
+    {{ $key }} . {{ $post->title }}
 @endif
 
 {{-- membuat tombol utk edit dan hapus data --}}

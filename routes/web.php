@@ -16,13 +16,15 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/home', 'home.index')->name('home.index');
+//Route::view('/home', 'home.index')->name('home.index');
 Route::view('/kontak', 'home.contact');
-Route::resource('posts', PostsController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
   
 Auth::routes();
   
@@ -34,6 +36,8 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
   
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+   
+    
 });
   
 /*------------------------------------------
@@ -44,6 +48,7 @@ All Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    
 });
   
 /*------------------------------------------
